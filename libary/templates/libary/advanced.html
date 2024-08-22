@@ -1,0 +1,23 @@
+{% extends 'libary/base.html' %}
+
+{% block content %}
+    <h2 id="advanced">Advanced Videos</h2>
+    <div class="row">
+        {% for video in advanced_videos %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ video.title }}</h5>
+                        <p class="card-text">{{ video.description }}</p>
+                        <div class="video-container">
+                            <video controls>
+                                <source src="{{ video.video_file.url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
